@@ -60,7 +60,8 @@ hook.Add("OnPlayerChat", "freshChat.OnPlayerChat", function( ply, message, tChat
 	local lang = GetConVarString( "freshchat_tts_lan" )
 	local str = string.Replace( message, " ", "%20" )
 	if tobool(GetConVarNumber( "freshchat_tts" )) then
-		sound.PlayURL("http://translate.google.com/translate_tts?tl=" .. lang .. "&q=" .. str,"",function() end)
+		--sound.PlayURL("http://translate.google.com/translate_tts?tl=" .. lang .. "&q=" .. str,"",function() end) -- Старая версия спетча
+		sound.PlayURL("http://translate.google.com/translate_tts?ie=UTF-8&tl=".. lang .."&client=tw-ob&q=".. str,"",function() end)
 	end
 
 	freshChat.createMessage( 1, tChat, dead, ply, message )
